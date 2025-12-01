@@ -64,8 +64,107 @@ docker rm 59fcb4db4886
 
     Cel: Nauka zarządzania obrazami Docker
      1.Pobierz obraz ubuntu:20.04 z Docker Hub
+$ docker pull ubuntu:20.04
+20.04: Pulling from library/ubuntu
+13b7e930469f: Pull complete
+Digest: sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214
+Status: Downloaded newer image for ubuntu:20.04
+docker.io/library/ubuntu:20.04
+
+
      2.Sprawdź listę dostępnych obrazów
+[sebjustin@localhost ~]$ docker image ls
+                                                                                                                                                                                              i Info →   U  In Use
+IMAGE                                                ID             DISK USAGE   CONTENT SIZE   EXTRA
+artifacts.plane.so/makeplane/plane-admin:v1.1.0      170fdf392c7e        473MB          121MB    U
+artifacts.plane.so/makeplane/plane-backend:v1.1.0    5ceabae0ae64        458MB          109MB    U
+artifacts.plane.so/makeplane/plane-frontend:v1.1.0   cd66043932d0        565MB          151MB    U
+artifacts.plane.so/makeplane/plane-live:v1.1.0       fc12847a8feb       1.38GB          239MB    U
+artifacts.plane.so/makeplane/plane-proxy:v1.1.0      5c8a5819a767        150MB         40.8MB    U
+artifacts.plane.so/makeplane/plane-space:v1.1.0      b97ff9529fcc        482MB          123MB    U
+hello-world:latest                                   f7931603f70e       16.2kB         3.96kB
+makeplane/plane-backend:latest                       a8b3ee5ad6a4        485MB          115MB    U
+makeplane/plane-backend:stable                       5ceabae0ae64        458MB          109MB    U
+makeplane/plane-frontend:latest                      30734d16d457       1.77GB          302MB    U
+makeplane/plane-frontend:stable                      cd66043932d0        565MB          151MB    U
+minio/minio:latest                                   14cea493d9a3        239MB         62.2MB    U
+nginx:alpine                                         b3c656d55d7a       78.4MB         22.6MB
+postgres:15                                          822f8795764a        622MB          158MB    U
+postgres:15.7-alpine                                 468d34fefd63        346MB           96MB    U
+rabbitmq:3.13.6-management-alpine                    611107e29cce        276MB         87.7MB    U
+redis:7-alpine                                       ee64a64eaab6       60.1MB         17.2MB    U
+ubuntu:20.04                                         8feb4d8ca535        107MB         27.5MB
+valkey/valkey:7.2.11-alpine   
+
+// testowalem inne kontenery plane to taki zamiennik jira
+
      3.Uruchom kontener z obrazem Ubuntu w trybie interaktywnym
+
+docker run -it --name ubuntu ubuntu:20.04
+root@156274980d8a:/#
+
      4.W kontenerze wykonaj polecenie ls -la i whoami
+
+ ls -la
+total 0
+drwxr-xr-x.   1 root root   6 Dec  1 19:03 .
+drwxr-xr-x.   1 root root   6 Dec  1 19:03 ..
+-rwxr-xr-x.   1 root root   0 Dec  1 19:03 .dockerenv
+lrwxrwxrwx.   1 root root   7 Apr  4  2025 bin -> usr/bin
+drwxr-xr-x.   2 root root   6 Apr 15  2020 boot
+drwxr-xr-x.   5 root root 360 Dec  1 19:03 dev
+drwxr-xr-x.   1 root root  66 Dec  1 19:03 etc
+drwxr-xr-x.   2 root root   6 Apr 15  2020 home
+lrwxrwxrwx.   1 root root   7 Apr  4  2025 lib -> usr/lib
+lrwxrwxrwx.   1 root root   9 Apr  4  2025 lib32 -> usr/lib32
+lrwxrwxrwx.   1 root root   9 Apr  4  2025 lib64 -> usr/lib64
+lrwxrwxrwx.   1 root root  10 Apr  4  2025 libx32 -> usr/libx32
+drwxr-xr-x.   2 root root   6 Apr  4  2025 media
+drwxr-xr-x.   2 root root   6 Apr  4  2025 mnt
+drwxr-xr-x.   2 root root   6 Apr  4  2025 opt
+dr-xr-xr-x. 218 root root   0 Dec  1 19:03 proc
+drwx------.   2 root root  37 Apr  4  2025 root
+drwxr-xr-x.   5 root root  58 Apr  4  2025 run
+lrwxrwxrwx.   1 root root   8 Apr  4  2025 sbin -> usr/sbin
+drwxr-xr-x.   2 root root   6 Apr  4  2025 srv
+dr-xr-xr-x.  13 root root   0 Nov 25 16:28 sys
+drwxrwxrwt.   2 root root   6 Apr  4  2025 tmp
+drwxr-xr-x.  13 root root 145 Apr  4  2025 usr
+drwxr-xr-x.  11 root root 139 Apr  4  2025 var
+root@156274980d8a:/# who
+who     whoami
+root@156274980d8a:/# whoami
+root
+root@156274980d8a:/#
+
      5.Wyjdź z kontenera i sprawdź jego status
+
+root@156274980d8a:/# exit
+exit
+[sebjustin@localhost ~]$
+[sebjustin@localhost ~]$ docker ps -a
+CONTAINER ID   IMAGE                                                COMMAND                  CREATED       STATUS                        PORTS     NAMES
+e1c8bb08b4ee   artifacts.plane.so/makeplane/plane-proxy:v1.1.0      "caddy run --config …"   2 weeks ago   Exited (0) 16 minutes ago               plane-app-proxy-1
+5d7d3be134d5   artifacts.plane.so/makeplane/plane-space:v1.1.0      "docker-entrypoint.s…"   2 weeks ago   Exited (0) 16 minutes ago               plane-app-space-1
+d1b65f9f094c   artifacts.plane.so/makeplane/plane-admin:v1.1.0      "docker-entrypoint.s…"   2 weeks ago   Exited (0) 16 minutes ago               plane-app-admin-1
+8e44cf77c61b   artifacts.plane.so/makeplane/plane-live:v1.1.0       "docker-entrypoint.s…"   2 weeks ago   Exited (0) 16 minutes ago               plane-app-live-1
+22b860354f66   artifacts.plane.so/makeplane/plane-frontend:v1.1.0   "docker-entrypoint.s…"   2 weeks ago   Exited (0) 16 minutes ago               plane-app-web-1
+d654a3d2acf9   artifacts.plane.so/makeplane/plane-backend:v1.1.0    "./bin/docker-entryp…"   2 weeks ago   Exited (137) 16 minutes ago             plane-app-beat-worker-1
+18516b86067f   artifacts.plane.so/makeplane/plane-backend:v1.1.0    "./bin/docker-entryp…"   2 weeks ago   Exited (137) 16 minutes ago             plane-app-worker-1
+0e0efc99a306   artifacts.plane.so/makeplane/plane-backend:v1.1.0    "./bin/docker-entryp…"   2 weeks ago   Exited (0) 16 minutes ago               plane-app-api-1
+96ac1f283bac   artifacts.plane.so/makeplane/plane-backend:v1.1.0    "./bin/docker-entryp…"   2 weeks ago   Exited (0) 2 weeks ago                  plane-app-migrator-1
+847679d4a092   postgres:15.7-alpine                                 "docker-entrypoint.s…"   2 weeks ago   Exited (0) 16 minutes ago               plane-app-plane-db-1
+92b26439b562   rabbitmq:3.13.6-management-alpine                    "docker-entrypoint.s…"   2 weeks ago   Exited (0) 16 minutes ago               plane-app-plane-mq-1
+5b50a5532b09   minio/minio:latest                                   "/usr/bin/docker-ent…"   2 weeks ago   Exited (0) 16 minutes ago               plane-app-plane-minio-1
+c9ad7001a38f   valkey/valkey:7.2.11-alpine                          "docker-entrypoint.s…"   2 weeks ago   Exited (0) 16 minutes ago               plane-app-plane-redis-1
+ddd869214937   makeplane/plane-frontend:latest                      "docker-entrypoint.s…"   2 weeks ago   Exited (0) 17 minutes ago               plane_frontend
+e312b65da35b   makeplane/plane-backend:latest                       "sh -c 'python3 mana…"   2 weeks ago   Exited (0) 16 minutes ago               plane_backend
+b041fae52ef9   postgres:15                                          "docker-entrypoint.s…"   2 weeks ago   Exited (0) 16 minutes ago               plane_postgres
+fa2983bc6f2f   redis:7-alpine                                       "docker-entrypoint.s…"   2 weeks ago   Exited (0) 16 minutes ago               plane_redis
+[sebjustin@localhost ~]$
+
      6.Usuń zatrzymany kontener
+
+[sebjustin@localhost ~]$ docker rm 156274980d8a
+156274980d8a
+[sebjustin@localhost ~]$

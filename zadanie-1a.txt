@@ -1,0 +1,38 @@
+    Cel: Zapoznanie się z podstawowymi komendami Docker CLI + GIT
+     1.Sprawdź wersję Docker zainstalowaną w systemie
+     2.Załóż repozytogium na github i dam mi dostęp lub zrob publiczne
+     3.Pobierz obraz hello-world z Docker Hub
+     4.Uruchom kontener z obrazem hello-world
+     5.Sprawdź listę wszystkich kontenerów (uruchomionych i zatrzymanych)
+     6.Usuń kontener hello-world
+
+Zadanie 1.2: Praca z obrazami
+    Cel: Nauka zarządzania obrazami Docker
+     1.Pobierz obraz ubuntu:20.04 z Docker Hub
+     2.Sprawdź listę dostępnych obrazów
+     3.Uruchom kontener z obrazem Ubuntu w trybie interaktywnym
+     4.W kontenerze wykonaj polecenie ls -la i whoami
+     5.Wyjdź z kontenera i sprawdź jego status
+     6.Usuń zatrzymany kontener
+
+Zadanie 1.3: Uruchamianie serwera webowego
+    Cel: Konfiguracja i uruchamianie aplikacji webowej
+     1.Pobierz obraz nginx:alpine
+     2.Uruchom kontener nginx w trybie odłączonym (detached)
+     3.Nadaj kontenerowi nazwę moj-nginx
+     4.Mapuj port 8080 hosta na port 80 kontenera
+     5.Sprawdź czy strona jest dostępna pod adresem http://localhost:8080
+     6.Sprawdź logi kontenera
+     7.Zatrzymaj i usuń kontener
+
+
+Zadanie 1.4: Uruchamianie serwera webowego
+    Cel: Konfiguracja i uruchamianie aplikacji webowej
+     8.Pobierz obraz nginx:alpine
+     9.Uruchom kontener nginx w  docker-compose.yaml
+     10.Nadaj kontenerowi nazwę moj-nginx
+     11.Mapuj port 8080 hosta na port 80 kontenera
+     12.Sprawdź czy strona jest dostępna pod adresem http://localhost:8080
+     13.Sprawdź logi kontenera
+     14. Zapisz plik docker-compose.yaml w swoim github i podeślij mi link
+     15.Zatrzymaj i usuń kontener

@@ -1,0 +1,71 @@
+==============  Cel: Zapoznanie się z podstawowymi komendami Docker CLI + GIT ==============
+     1.Sprawdź wersję Docker zainstalowaną w systemie
+
+[sebjustin@localhost ~]$ docker -v
+Docker version 29.0.4, build 3247a5a
+
+     2.Załóż repozytogium na github i dam mi dostęp lub zrob publiczne
+
+https://github.com/sebjustin/test-devops
+
+     3.Pobierz obraz hello-world z Docker Hub
+
+docker pull hello-world
+Using default tag: latest
+latest: Pulling from library/hello-world
+17eec7bbc9d7: Pull complete
+Digest: sha256:f7931603f70e13dbd844253370742c4fc4202d290c80442b2e68706d8f33ce26
+Status: Downloaded newer image for hello-world:latest
+docker.io/library/hello-world:latest
+
+
+     4.Uruchom kontener z obrazem hello-world
+
+docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+     5.Sprawdź listę wszystkich kontenerów (uruchomionych i zatrzymanych)
+
+ docker ps -a
+CONTAINER ID   IMAGE                                                COMMAND                  CREATED              STATUS                          PORTS                                                                                             NAMES
+59fcb4db4886   hello-world                                          "/hello"                 About a minute ago   Exited (0) About a minute ago                                                                                                     magical_shamir
+d4c6522f1d24   hello-world                                          "/hello"                 6 minutes ago        Exited (0) 6 minutes ago                                                                                                          adoring_shtern
+6b046e258b16   hello-world                                          "/hello"                 7 minutes ago        Exited (0) 7 minutes ago        
+//uruchimilem 3 razy i pozniej usunąłem 3 pojedynczo
+
+
+     6.Usuń kontener hello-world
+docker rm 6b046e258b16
+docker rm d4c6522f1d24
+docker rm 59fcb4db4886 
+
+============== Zadanie 1.2: Praca z obrazami ===============
+
+    Cel: Nauka zarządzania obrazami Docker
+     1.Pobierz obraz ubuntu:20.04 z Docker Hub
+     2.Sprawdź listę dostępnych obrazów
+     3.Uruchom kontener z obrazem Ubuntu w trybie interaktywnym
+     4.W kontenerze wykonaj polecenie ls -la i whoami
+     5.Wyjdź z kontenera i sprawdź jego status
+     6.Usuń zatrzymany kontener

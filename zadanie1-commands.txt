@@ -1,0 +1,4 @@
+docker run -d --name mariadb-zad1 -e MYSQL_ROOT_PASSWORD=pass -p 3306:3306 mariadb:latest
+docker logs mariadb-zad1
+docker stop mariadb-zad1
+docker ps -a

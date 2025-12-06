@@ -1,0 +1,3 @@
+docker ps
+docker network ls
+docker run -d --name phpmyadmin --network zadanie-2-4_default -e PMA_HOST=mariadb_db -e PMA_USER=root -e PMA_PASSWORD=pass -p 8082:80 phpmyadmin/phpmyadmin:latest

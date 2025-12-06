@@ -1,0 +1,11 @@
+services:
+  db:
+    image: mariadb:latest
+    container_name: mariadb_db
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+    volumes:
+      - db-vol:/var/lib/mysql
+
+volumes:
+  db-vol:

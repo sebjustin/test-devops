@@ -1,0 +1,20 @@
+mkdir zadanie-2-3
+cd zadanie-2-3
+touch docker-compose.yaml
+vi docker-compose.yaml
+docker compose up -d
+docker compose ps
+docker volume ls
+docker exec -it mariadb_db mariadb -u root -p
+pass
+CREATE DATABASE kurs_docker;
+SHOW DATABASES;
+exit
+docker compose down
+docker compose up -d
+docker compose ps
+docker volume ls
+docker exec -it mariadb_db mariadb -u root -p
+pass
+SHOW DATABASES;
+exit

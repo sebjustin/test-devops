@@ -1,0 +1,18 @@
+#!/bin/bash
+docker volume create db-vol
+docker volume ls
+docker run -d --name mariadb1 -e MYSQL_ROOT_PASSWORD=pass -v db-vol:/var/lib/mysql mariadb:latest
+docker exec -it mariadb1 bash
+mariadb -u root -p
+hasło pass
+CREATE DATABASE kurs_docker;
+SHOW DATABASES;
+exit;
+exit
+docker stop mariadb1
+docker rm mariadb1
+docker run -d --name mariadb2 -e MYSQL_ROOT_PASSWORD=pass -v db-vol:/var/lib/mysql mariadb:latest
+docker exec -it mariadb2 bash
+mariadb -u root -p
+SHOW DATABASES;
+exit

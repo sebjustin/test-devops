@@ -1,0 +1,6 @@
+mkdir zadanie-2-5
+cd zadanie-2-5
+touch docker-compose.yaml
+vi docker-compose.yaml
+docker compose up -d
+docker compose ps

@@ -1,0 +1,6 @@
+touch docker-compose.yaml
+vi docker-compose.yaml
+docker ps
+docker network ls
+docker compose down
+

@@ -1,0 +1,21 @@
+
+services:
+  hostgui1:
+    image: spidero/hostgui
+    ports:
+      - "8081:80"
+
+  hostgui2:
+    image: spidero/hostgui
+    ports:
+      - "8082:80"
+
+  hostgui3:
+    image: spidero/hostgui
+    ports:
+      - "8083:80"
+
+  hostgui4:
+    image: spidero/hostgui
+    ports:
+      - "8084:80"

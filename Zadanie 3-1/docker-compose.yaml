@@ -1,0 +1,7 @@
+
+services:
+  hostgui1:
+    image: spidero/hostgui
+    container_name: hostgui1
+    ports:
+      - "8081:80"  

@@ -3,5 +3,4 @@ vi docker-compose.yaml
 docker ps
 docker network ls
 docker compose stats --no-stream
-docker compose down
-
+docker stop zadanie-3-3-hostgui3-1

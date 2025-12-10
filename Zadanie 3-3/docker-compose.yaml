@@ -1,0 +1,27 @@
+
+services:
+  hostgui1:
+    image: spidero/hostgui
+
+  hostgui2:
+    image: spidero/hostgui
+
+  hostgui3:
+    image: spidero/hostgui
+
+  hostgui4:
+    image: spidero/hostgui
+
+  haproxy:
+    image: haproxy
+    container_name: haproxy
+    ports:
+      - "8085:80"     # port na ktorym jest frontend 
+      - "9001:9001"   # port panelu admina haproxy
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:rw
+    depends_on:
+      - hostgui1
+      - hostgui2
+      - hostgui3
+      - hostgui4

@@ -1,0 +1,6 @@
+services:
+  nginx:
+    image: sebjustin-nginx:1.3
+    container_name: nginx-test-1.3
+    ports:
+      - "8080:80"

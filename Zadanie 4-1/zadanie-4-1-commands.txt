@@ -1,0 +1,12 @@
+#czyszcze stare kontenery obrazy sieci i cache
+docker system prune -a
+mkdir nginx-dockerfile
+cd nginx-dockerfile 
+touch Dockerfile
+touch index.html
+docker build -t sebastian-nginx:1.0 .
+docker run -d --name nginx-test -p 8080:80 sebastian-nginx:1.0
+docker ps
+docker tag sebastian-nginx:1.0 docker.io/sebjustin/nginx-course:1.0
+docker login docker.io
+docker push docker.io/sebjustin/nginx-course:1.0

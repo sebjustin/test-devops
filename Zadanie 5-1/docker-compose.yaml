@@ -1,0 +1,12 @@
+services:
+  simple-app:
+    image: spidero/simple-app
+    container_name: simple-app
+    ports:
+      - "8001:8000"
+
+  simple-api:
+    image: spidero/simple-api
+    container_name: simple-api
+    ports:
+      - "8002:8000"

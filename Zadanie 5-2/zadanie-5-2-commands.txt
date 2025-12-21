@@ -1,0 +1,10 @@
+mkdir nginx
+cd nginx 
+touch default.conf
+cd ..
+touch docker-compose.yml
+vi 
+docker compose up -d
+docker ps
+docker logs simple-api
+docker logs simple-app

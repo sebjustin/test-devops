@@ -1,0 +1,16 @@
+touch nginx.conf
+cd ..
+touch docker-compose.yml
+vi 
+unzip certs.zip
+cd certs
+mv public.pem cert.pem
+mv privkey.pem key.pem
+docker compose up -d
+docker compose ps -a
+
+docker logs nginx_ssl_frontend
+
+
+//Port 8443 hosta jest mapowany na port 443 kontenera NGINX, na którym realizowane jest połączenie HTTPS,
+// natomiast przekierowanie z HTTP na HTTPS działa tylko wtedy, gdy port 80 kontenera jest również wystawiony na hoście.

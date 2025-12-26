@@ -1,0 +1,18 @@
+
+
+services:
+  hostgui:
+    image: spidero/hostgui
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_ssl_frontend
+    ports:  
+      - "8080:80"    
+      - "8443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      - hostgui
+
